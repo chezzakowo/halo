@@ -1,10 +1,10 @@
 struct Node {
-   int value;
+   int val;
    Node* left;
    Node*right;
 
    Node(int x) {
-      value = x;
+      val = x;
       left = nullptr;
       right = nullptr;
    }
@@ -22,9 +22,9 @@ struct MyBST {
       if (root == nullptr) {
          return new Node(x);
       }
-      if (x < root->value) {
+      if (x < root->val) {
          root->left = insertNode(root->left, x);
-      } else if (x > root-> value) {
+      } else if (x > root-> val) {
          root->right = insertNode(root->right, x);
       }
 
@@ -46,7 +46,7 @@ struct MyBST {
        
        if (node == nullptr) return -1;
        
-       return node->value;
+       return node->val;
    }
 
    int getMin() {
@@ -58,17 +58,18 @@ struct MyBST {
         node = node->left;
        }
        
-       return node->value;
+       return node->val;
    }
+
    Node* removeNode(Node* root, int x) {
       if (root == nullptr) return nullptr;
       
-      if (x < root->value) {
+      if (x < root->val) {
          root->left = removeNode(root->left, x);
          return root;
       }
       
-      if (x > root->value) {
+      if (x > root->val) {
          root->right = removeNode(root->right, x);
          return root;
       }
@@ -86,8 +87,8 @@ struct MyBST {
       }
       
       Node* tmp = getMaxNode(root->left);
-      root->value = tmp->value;
-      root->left = removeNode(root->left, tmp->value);
+      root->val = tmp->val;
+      root->left = removeNode(root->left, tmp->val);
       
       return root;
    }
@@ -98,8 +99,8 @@ struct MyBST {
 
    Node* containsNode(Node* root, int x) {
        if (root == nullptr) return nullptr;
-       if (root->value == x) return root;
-       if (root->value > x) return containsNode(root->left, x);
+       if (root->val == x) return root;
+       if (root->val > x) return containsNode(root->left, x);
        return containsNode(root->right, x);
    }
 
