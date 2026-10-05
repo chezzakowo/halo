@@ -10,6 +10,7 @@ struct Node {
    }
 
 };
+
 struct MyBST {
    Node* root;
    
@@ -101,7 +102,7 @@ struct MyBST {
        if (root->value > x) return containsNode(root->left, x);
        return containsNode(root->right, x);
    }
-   
+
    int contains(int x) {
       if (containsNode(root, x) == nullptr) return 0;
       return 1;
